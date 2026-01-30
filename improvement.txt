@@ -1,0 +1,13 @@
+## Scope of improvement :
+
+1. Change the colour palate into a more professional orientaed and improve the black and white switching effect - Huzaifa
+2. Use any CUET related image as a trasparent bg of the website - Sarowar
+3. Use the CUET logo as the website logo (changing the logo grafically) - ALVY
+4. Build backend with expressjs
+5. Build database with mongoDB 
+6. Build the user authentication with the API integration - Sarowar
+7. Collect real data (through google form,manually,data fetching)
+8. Deploy and Automate
+9. Use GenAI for :
+        1. Resume review and job,scholarship suggessions also
+        2. Suggession in resume building for specific job cattegory

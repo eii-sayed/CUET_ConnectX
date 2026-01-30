@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - CUET ConnectX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-network-wired"></i>
+                <span>CUET ConnectX</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="community.html" class="active">Community</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                    <span class="user-name">Anupam Paul</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1>CUET Community</h1>
+                    <p>Connect with students and alumni from CUET</p>
+                </div>
+                <div class="community-stats">
+                    <div class="stat-badge">
+                        <i class="fas fa-users"></i>
+                        <span><strong id="totalUsers">1000+</strong> Members</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Tabs -->
+            <div class="community-tabs">
+                <button class="tab-btn active" onclick="switchTab('students')">
+                    <i class="fas fa-user-graduate"></i>
+                    Current Students
+                    <span class="tab-count" id="studentsCount">650</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab('alumni')">
+                    <i class="fas fa-user-tie"></i>
+                    Alumni
+                    <span class="tab-count" id="alumniCount">350</span>
+                </button>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="community-search-section">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="communitySearch" placeholder="Search members..." onkeyup="searchCommunity()">
+                </div>
+                
+                <!-- Students Filters -->
+                <div class="filter-group" id="studentsFilters">
+                    <select id="batchFilter" onchange="filterCommunity()">
+                        <option value="">All Batches</option>
+                        <option value="2024">Batch 2024</option>
+                        <option value="2023">Batch 2023</option>
+                        <option value="2022">Batch 2022</option>
+                        <option value="2021">Batch 2021</option>
+                        <option value="2020">Batch 2020</option>
+                    </select>
+                    <select id="departmentFilter" onchange="filterCommunity()">
+                        <option value="">All Departments</option>
+                        <option value="CSE">Computer Science & Engineering</option>
+                        <option value="EEE">Electrical & Electronic Engineering</option>
+                        <option value="ME">Mechanical Engineering</option>
+                        <option value="CE">Civil Engineering</option>
+                        <option value="IPE">Industrial & Production Engineering</option>
+                        <option value="Architecture">Architecture</option>
+                    </select>
+                    <input type="text" id="studentIdFilter" placeholder="Search by Student ID" onkeyup="filterCommunity()">
+                </div>
+
+                <!-- Alumni Filters -->
+                <div class="filter-group hidden" id="alumniFilters">
+                    <select id="alumniBatchFilter" onchange="filterCommunity()">
+                        <option value="">All Batches</option>
+                        <option value="2019">Batch 2019</option>
+                        <option value="2018">Batch 2018</option>
+                        <option value="2017">Batch 2017</option>
+                        <option value="2016">Batch 2016</option>
+                        <option value="2015">Batch 2015</option>
+                    </select>
+                    <select id="countryFilter" onchange="filterCommunity()">
+                        <option value="">All Countries</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                    <select id="professionFilter" onchange="filterCommunity()">
+                        <option value="">All Professions</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Data Scientist">Data Scientist</option>
+                        <option value="Product Manager">Product Manager</option>
+                        <option value="Researcher">Researcher</option>
+                        <option value="Entrepreneur">Entrepreneur</option>
+                        <option value="Professor">Professor</option>
+                    </select>
+                    <input type="text" id="skillFilter" placeholder="Search by Skill" onkeyup="filterCommunity()">
+                </div>
+            </div>
+
+            <!-- Members Grid -->
+            <div class="members-grid" id="membersGrid">
+                <!-- Student Members -->
+                <div class="member-card" data-type="student" data-batch="2022" data-department="CSE" data-id="2204116">
+                    <div class="member-header">
+                        <img src="./img/anupam.jpg" alt="Member" class="member-avatar">
+                        <span class="member-badge student-badge">Current Student</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>Anupam Paul</h3>
+                        <p class="member-id">ID: 2204116</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2022</span>
+                            <span class="info-tag"><i class="fas fa-building"></i> CSE</span>
+                        </div>
+                        <p class="member-bio">Passionate about AI and Machine Learning. Looking for research opportunities.</p>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 245 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('2204116')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('2204116')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+
+                                <div class="member-card" data-type="student" data-batch="2022" data-department="CSE" data-id="2204116">
+                    <div class="member-header">
+                        <img src="https://via.placeholder.com/80" alt="Member" class="member-avatar">
+                        <span class="member-badge student-badge">Current Student</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>MD Abu Sayed</h3>
+                        <p class="member-id">ID: 2204115</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2022</span>
+                            <span class="info-tag"><i class="fas fa-building"></i> CSE</span>
+                        </div>
+                        <p class="member-bio">Passionate about AI and Machine Learning. Looking for research opportunities.</p>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 333 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('2204115')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('2204115')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+
+                <!-- More Student Examples -->
+                <div class="member-card" data-type="student" data-batch="2023" data-department="EEE" data-id="2304201">
+                    <div class="member-header">
+                        <img src="https://via.placeholder.com/80" alt="Member" class="member-avatar">
+                        <span class="member-badge student-badge">Current Student</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>Fatima Rahman</h3>
+                        <p class="member-id">ID: 2304201</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2023</span>
+                            <span class="info-tag"><i class="fas fa-building"></i> EEE</span>
+                        </div>
+                        <p class="member-bio">Electronics enthusiast with interest in IoT and embedded systems.</p>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 180 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('2304201')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('2304201')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card" data-type="student" data-batch="2021" data-department="ME" data-id="2104305">
+                    <div class="member-header">
+                        <img src="https://via.placeholder.com/80" alt="Member" class="member-avatar">
+                        <span class="member-badge student-badge">Current Student</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>Karim Hassan</h3>
+                        <p class="member-id">ID: 2104305</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2021</span>
+                            <span class="info-tag"><i class="fas fa-building"></i> ME</span>
+                        </div>
+                        <p class="member-bio">Mechanical engineering student interested in robotics and automation.</p>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 320 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('2104305')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('2104305')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Alumni Members -->
+                <div class="member-card" data-type="alumni" data-batch="2018" data-country="BANGLADESH" data-profession="Lecturer at CUET" data-skills="Machine Learning,Software Development,Internet Programming,Teaching">
+                    <div class="member-header">
+                        <img src="https://via.placeholder.com/80" alt="Member" class="member-avatar">
+                        <span class="member-badge alumni-badge">Alumni</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>Abir Hassan</h3>
+                        <p class="member-id">ID: 1804110</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2018</span>
+                            <span class="info-tag"><i class="fas fa-globe"></i> BANGLADESH </span>
+                        </div>
+                        <p class="member-profession"><i class="fas fa-briefcase"></i> Lecturer at CUET </p>
+                        <div class="member-skills">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Software Development</span>
+                            <span class="skill-tag">Teaching</span>
+                            <span class="skill-tag">Internet Programming</span>
+                        </div>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 520 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('1804110')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('1804110')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card" data-type="alumni" data-batch="2017" data-country="UK" data-profession="Data Scientist" data-skills="Machine Learning, Python, TensorFlow">
+                    <div class="member-header">
+                        <img src="https://via.placeholder.com/80" alt="Member" class="member-avatar">
+                        <span class="member-badge alumni-badge">Alumni</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>Fahim Hassan</h3>
+                        <p class="member-id">ID: 1704220</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2017</span>
+                            <span class="info-tag"><i class="fas fa-globe"></i> UK</span>
+                        </div>
+                        <p class="member-profession"><i class="fas fa-briefcase"></i> Data Scientist at DeepMind</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                        </div>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 430 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('1704220')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('1704220')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+
+                <div class="member-card" data-type="alumni" data-batch="2019" data-country="Bangladesh" data-profession="Entrepreneur" data-skills="Business, Leadership, Marketing">
+                    <div class="member-header">
+                        <img src="https://via.placeholder.com/80" alt="Member" class="member-avatar">
+                        <span class="member-badge alumni-badge">Alumni</span>
+                    </div>
+                    <div class="member-body">
+                        <h3>Nusrat Jahan</h3>
+                        <p class="member-id">ID: 1904133</p>
+                        <div class="member-info">
+                            <span class="info-tag"><i class="fas fa-calendar"></i> Batch 2019</span>
+                            <span class="info-tag"><i class="fas fa-globe"></i> Bangladesh</span>
+                        </div>
+                        <p class="member-profession"><i class="fas fa-briefcase"></i> Founder & CEO at TechStart BD</p>
+                        <div class="member-skills">
+                            <span class="skill-tag">Business</span>
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Marketing</span>
+                        </div>
+                        <div class="member-stats">
+                            <span><i class="fas fa-users"></i> 680 followers</span>
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button class="btn-outline btn-small" onclick="viewProfile('1904133')">View Profile</button>
+                        <button class="btn-primary btn-small" onclick="followUser('1904133')">
+                            <i class="fas fa-user-plus"></i> Follow
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="community.js"></script>
+</body>
+</html>

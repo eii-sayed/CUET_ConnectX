@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - CUET ConnectX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-network-wired"></i>
+                <span>CUET ConnectX</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <img src="./img/anupam.jpg" alt="User" class="user-avatar">
+                    <span class="user-name">Anupam Paul</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-cover">
+                    <button class="edit-cover-btn" onclick="editCover()">
+                        <i class="fas fa-camera"></i> Change Cover
+                    </button>
+                </div>
+                <div class="profile-header-content">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar">
+                            <img src="./img/anupam.jpg" alt="Profile Picture" id="profileImage">
+                            <button class="edit-avatar-btn" onclick="editAvatar()">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-basic-info">
+                            <h1 id="profileName">Anupam Paul</h1>
+                            <p class="profile-badge">
+                                <span class="badge badge-student" id="userTypeBadge">Current Student</span>
+                                <span class="badge badge-batch" id="batchBadge">Batch 2022</span>
+                            </p>
+                            <p class="profile-id">Student ID: <span id="profileStudentId">2204116</span></p>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn-primary" onclick="toggleEditMode()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button class="btn-outline" onclick="shareProfile()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <h3 id="followersCount">245</h3>
+                        <p>Followers</p>
+                    </div>
+                    <!-- <div class="stat-item">
+                        <h3 id="followingCount">180</h3>
+                        <p>Following</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="connectionsCount">430</h3>
+                        <p>Connections</p>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Left Column -->
+                <div class="profile-left">
+                    <!-- About Section -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h3>About</h3>
+                            <button class="btn-icon" onclick="editAbout()"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <p id="aboutText">Passionate computer science student interested in machine learning and web development. Looking for internship opportunities and research collaborations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h3>Contact Information</h3>
+                            <button class="btn-icon" onclick="editContact()"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <label>Email</label>
+                                    <p id="contactEmail">anupam.paul@example.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <label>Address</label>
+                                    <p id="contactAddress">Dhaka, Bangladesh</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h3>Social Links</h3>
+                            <button class="btn-icon" onclick="editSocialLinks()"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="social-links-list" id="socialLinksList">
+                                <a href="#" class="social-link-item">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn Profile</span>
+                                </a>
+                                <a href="#" class="social-link-item">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub Profile</span>
+                                </a>
+                                <a href="#" class="social-link-item">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook Profile</span>
+                                </a>
+                                <a href="#" class="social-link-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Portfolio Website</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="profile-right">
+                    <!-- Professional Information -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h3>Professional Information</h3>
+                            <button class="btn-icon" onclick="editProfessional()"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="professional-item">
+                                <h4><i class="fas fa-briefcase"></i> Current Profession</h4>
+                                <p id="currentProfession">Software Engineering Intern at TechCorp</p>
+                            </div>
+                            <div class="professional-item">
+                                <h4><i class="fas fa-history"></i> Previous Profession</h4>
+                                <p id="previousProfession">Web Developer at StartupXYZ</p>
+                            </div>
+                            <div class="professional-item">
+                                <h4><i class="fas fa-flask"></i> Research Interests</h4>
+                                <div class="tags" id="researchInterests">
+                                    <span class="tag">Machine Learning</span>
+                                    <span class="tag">Artificial Intelligence</span>
+                                    <span class="tag">Natural Language Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h3>Education</h3>
+                            <button class="btn-icon" onclick="addEducation()"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="education-list" id="educationList">
+                                <div class="education-item">
+                                    <div class="education-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h4>Bachelor of Science in Computer Science</h4>
+                                        <p class="institution">Chittagong University of Engineering & Technology</p>
+                                        <p class="duration">2022 - Present</p>
+                                        <p class="subjects">Major: Computer Science | Focus: AI & Machine Learning</p>
+                                    </div>
+                                    <button class="btn-icon-small" onclick="editEducationItem(this)"><i class="fas fa-edit"></i></button>
+                                </div>
+                                <div class="education-item">
+                                    <div class="education-icon">
+                                        <i class="fas fa-school"></i>
+                                    </div>
+                                    <div class="education-content">
+                                        <h4>Higher Secondary Certificate</h4>
+                                        <p class="institution">Chittagong College</p>
+                                        <p class="duration">2020 - 2022</p>
+                                        <p class="subjects">Science Group | GPA: 5.00</p>
+                                    </div>
+                                    <button class="btn-icon-small" onclick="editEducationItem(this)"><i class="fas fa-edit"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="profile-card">
+                        <div class="card-header">
+                            <h3>Skills</h3>
+                            <button class="btn-icon" onclick="editSkills()"><i class="fas fa-edit"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="tags" id="skillsList">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Data Structures</span>
+                                <span class="tag">Algorithms</span>
+                                <span class="tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="modalTitle">Edit Profile</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

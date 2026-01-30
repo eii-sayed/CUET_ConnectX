@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships - CUET ConnectX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-network-wired"></i>
+                <span>CUET ConnectX</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="scholarships.html" class="active">Scholarships</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-menu">
+                    <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                    <span class="user-name">Anupam Paul</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scholarships Section -->
+    <section class="scholarships-section">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1>Scholarship Opportunities</h1>
+                    <p>Discover funding opportunities for your academic journey</p>
+                </div>
+                <button class="btn-primary" onclick="openPostScholarshipModal()">
+                    <i class="fas fa-plus"></i> Post a Scholarship
+                </button>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="scholarshipSearchInput" placeholder="Search scholarships by name, keywords..." onkeyup="filterScholarships()">
+                </div>
+                <div class="filter-controls">
+                    <select id="levelFilter" onchange="filterScholarships()">
+                        <option value="">All Levels</option>
+                        <option value="undergraduate">Undergraduate</option>
+                        <option value="masters">Master's</option>
+                        <option value="phd">PhD</option>
+                        <option value="postdoc">Post-Doctoral</option>
+                    </select>
+                    <select id="scholarshipLocationFilter" onchange="filterScholarships()">
+                        <option value="">All Locations</option>
+                        <option value="bangladesh">Bangladesh</option>
+                        <option value="usa">USA</option>
+                        <option value="uk">UK</option>
+                        <option value="canada">Canada</option>
+                        <option value="europe">Europe</option>
+                        <option value="asia">Asia</option>
+                    </select>
+                    <select id="fundingFilter" onchange="filterScholarships()">
+                        <option value="">Funding Type</option>
+                        <option value="full">Fully Funded</option>
+                        <option value="partial">Partially Funded</option>
+                        <option value="tuition">Tuition Waiver</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Scholarships Grid -->
+            <div class="scholarships-grid" id="scholarshipsGrid">
+                <!-- Scholarship Card 1 -->
+                <div class="scholarship-card" data-level="masters" data-location="usa" data-funding="full">
+                    <div class="scholarship-header">
+                        <div class="scholarship-badge badge-full">Fully Funded</div>
+                        <button class="btn-icon" onclick="toggleSaveScholarship(this)" title="Save Scholarship">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="scholarship-body">
+                        <h3 class="scholarship-title">Fulbright Foreign Student Program</h3>
+                        <div class="scholarship-meta">
+                            <span class="scholarship-tag"><i class="fas fa-graduation-cap"></i> Master's, PhD</span>
+                            <span class="scholarship-tag"><i class="fas fa-map-marker-alt"></i> USA</span>
+                        </div>
+                        <p class="scholarship-description">Full scholarship for international students to pursue graduate studies in the United States. Covers tuition, living expenses, and travel costs.</p>
+                        <div class="scholarship-details">
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <label>Funding</label>
+                                    <p>Full tuition + $2,500/month stipend + Travel</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <div>
+                                    <label>Deadline</label>
+                                    <p>October 15, 2026</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <label>Duration</label>
+                                    <p>2-3 years</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posted-info">
+                            <img src="https://via.placeholder.com/30" alt="Posted by">
+                            <span>Posted by <strong>Dr. Nasrin Ahmed</strong></span>
+                        </div>
+                    </div>
+                    <div class="scholarship-actions">
+                        <button class="btn-outline btn-small" onclick="viewScholarshipDetails(1)">View Details</button>
+                        <button class="btn-primary btn-small" onclick="applyScholarship('https://example.com/fulbright')">
+                            Learn More <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Scholarship Card 2 -->
+                <div class="scholarship-card" data-level="phd" data-location="uk" data-funding="full">
+                    <div class="scholarship-header">
+                        <div class="scholarship-badge badge-full">Fully Funded</div>
+                        <button class="btn-icon" onclick="toggleSaveScholarship(this)" title="Save Scholarship">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="scholarship-body">
+                        <h3 class="scholarship-title">Commonwealth PhD Scholarships</h3>
+                        <div class="scholarship-meta">
+                            <span class="scholarship-tag"><i class="fas fa-graduation-cap"></i> PhD</span>
+                            <span class="scholarship-tag"><i class="fas fa-map-marker-alt"></i> UK</span>
+                        </div>
+                        <p class="scholarship-description">Commonwealth scholarships for developing country students to pursue doctoral studies in UK universities.</p>
+                        <div class="scholarship-details">
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <label>Funding</label>
+                                    <p>Full tuition + Living allowance + Travel</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <div>
+                                    <label>Deadline</label>
+                                    <p>December 16, 2026</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <label>Duration</label>
+                                    <p>3-4 years</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posted-info">
+                            <img src="https://via.placeholder.com/30" alt="Posted by">
+                            <span>Posted by <strong>Prof. Karim Rahman</strong></span>
+                        </div>
+                    </div>
+                    <div class="scholarship-actions">
+                        <button class="btn-outline btn-small" onclick="viewScholarshipDetails(2)">View Details</button>
+                        <button class="btn-primary btn-small" onclick="applyScholarship('https://example.com/commonwealth')">
+                            Learn More <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Scholarship Card 3 -->
+                <div class="scholarship-card" data-level="undergraduate" data-location="bangladesh" data-funding="partial">
+                    <div class="scholarship-header">
+                        <div class="scholarship-badge badge-partial">Partially Funded</div>
+                        <button class="btn-icon" onclick="toggleSaveScholarship(this)" title="Save Scholarship">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="scholarship-body">
+                        <h3 class="scholarship-title">CUET Merit Scholarship</h3>
+                        <div class="scholarship-meta">
+                            <span class="scholarship-tag"><i class="fas fa-graduation-cap"></i> Undergraduate</span>
+                            <span class="scholarship-tag"><i class="fas fa-map-marker-alt"></i> Bangladesh</span>
+                        </div>
+                        <p class="scholarship-description">Merit-based scholarship for CUET undergraduate students with excellent academic records.</p>
+                        <div class="scholarship-details">
+                            <div class="detail-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <label>Funding</label>
+                                    <p>50% tuition waiver</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="far fa-calendar-alt"></i>
+                                <div>
+                                    <label>Deadline</label>
+                                    <p>March 31, 2026</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <label>Duration</label>
+                                    <p>1 year (renewable)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="posted-info">
+                            <img src="https://via.placeholder.com/30" alt="Posted by">
+                            <span>Posted by <strong>CUET Admin</strong></span>
+                        </div>
+                    </div>
+                    <div class="scholarship-actions">
+                        <button class="btn-outline btn-small" onclick="viewScholarshipDetails(3)">View Details</button>
+                        <button class="btn-primary btn-small" onclick="applyScholarship('https://example.com/cuet-merit')">
+                            Learn More <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Scholarship Modal -->
+    <div class="modal" id="postScholarshipModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Post a Scholarship Opportunity</h3>
+                <button class="modal-close" onclick="closePostScholarshipModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="postScholarshipForm" class="post-form">
+                    <div class="form-group">
+                        <label for="scholarshipName">Scholarship Name *</label>
+                        <input type="text" id="scholarshipName" required placeholder="Enter scholarship name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scholarshipLevel">Level *</label>
+                            <select id="scholarshipLevel" required>
+                                <option value="">Select level</option>
+                                <option value="undergraduate">Undergraduate</option>
+                                <option value="masters">Master's</option>
+                                <option value="phd">PhD</option>
+                                <option value="postdoc">Post-Doctoral</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="scholarshipLocation">Location *</label>
+                            <input type="text" id="scholarshipLocation" required placeholder="e.g., USA, UK">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fundingType">Funding Type *</label>
+                            <select id="fundingType" required>
+                                <option value="">Select funding type</option>
+                                <option value="full">Fully Funded</option>
+                                <option value="partial">Partially Funded</option>
+                                <option value="tuition">Tuition Waiver</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="scholarshipDuration">Duration *</label>
+                            <input type="text" id="scholarshipDuration" required placeholder="e.g., 2-3 years">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fundingDetails">Funding Details *</label>
+                        <textarea id="fundingDetails" required rows="3" placeholder="Describe what the scholarship covers (tuition, stipend, travel, etc.)"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scholarshipDeadline">Application Deadline *</label>
+                            <input type="date" id="scholarshipDeadline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="scholarshipLink">Scholarship Link *</label>
+                            <input type="url" id="scholarshipLink" required placeholder="https://example.com/scholarship">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eligibility">Eligibility Criteria *</label>
+                        <textarea id="eligibility" required rows="4" placeholder="List eligibility requirements"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="benefits">Benefits *</label>
+                        <textarea id="benefits" required rows="3" placeholder="Describe the scholarship benefits"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="scholarshipDescription">Description *</label>
+                        <textarea id="scholarshipDescription" required rows="4" placeholder="Provide additional details about the scholarship"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-outline" onclick="closePostScholarshipModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">Post Scholarship</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scholarship Details Modal -->
+    <div class="modal" id="scholarshipDetailsModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="scholarshipDetailTitle">Scholarship Details</h3>
+                <button class="modal-close" onclick="closeScholarshipDetailsModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="scholarshipDetailsBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="scholarships.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - CUET ConnectX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-network-wired"></i>
+                <span>CUET ConnectX</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="scholarships.html">Scholarships</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn-secondary">Login</a>
+                <a href="signup.html" class="btn-primary">Sign Up</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="page-header-center">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about CUET ConnectX</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-category">
+                    <h2><i class="fas fa-user-plus"></i> Getting Started</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How do I sign up for CUET ConnectX?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>To sign up, click the "Sign Up" button on the homepage and fill in your details including full name, email, student ID, and password. You'll receive a verification email to confirm your account. Once verified, you can complete your profile with additional information.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Who can join CUET ConnectX?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>CUET ConnectX is exclusively for CUET (Chittagong University of Engineering & Technology) students and alumni. You need a valid CUET student ID to register. The platform automatically determines whether you're a current student or alumni based on your student ID.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How is my status (Student/Alumni) determined?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Your status is automatically determined by your student ID. If the first two digits of your ID are 20 or above, you're classified as a current student. If below 20, you're classified as an alumni. For example, ID 2204116 indicates Batch 2022 (current student), while 1904116 indicates Batch 2019 (alumni).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2><i class="fas fa-user-circle"></i> Profile & Account</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>What information can I add to my profile?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can add comprehensive information including: profile photo, address, current and previous professions, research interests, social media links (LinkedIn, GitHub, Facebook, portfolio), education background from university level onwards, skills, and a personal description. All this information will be visible to other users when they search for you.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How do followers work on CUET ConnectX?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Users can follow each other to stay updated with their activities. Your follower count is displayed on your profile and is visible to all users. Following someone allows you to see their updates and easily connect with them for collaboration or mentorship.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Can I edit my profile information?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can edit your profile information anytime by clicking the "Edit Profile" button on your profile page. You can update your personal details, professional information, education, skills, and social links.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2><i class="fas fa-briefcase"></i> Jobs</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How can I find job opportunities?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Navigate to the Jobs page where you can browse all posted job opportunities. Use the search bar to find jobs by title, company, or keywords. You can also filter jobs by type (full-time, part-time, internship), location, experience level, and whether they're posted by alumni.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How do I post a job opportunity?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Click the "Post a Job" button on the Jobs page and fill in the required information including company name, role, location, job type, experience level, requirements, responsibilities, application deadline, and the application link. Your post will include your name and profile, making it easy for applicants to connect with you.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Can I save jobs to view later?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, you can save any job post by clicking the bookmark icon on the job card. Saved jobs can be accessed later from your profile for easy reference.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How do I apply for a job?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Each job post includes an "Apply Now" button that will redirect you to the application link provided by the job poster. You'll be taken to the external application page where you can submit your application.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2><i class="fas fa-graduation-cap"></i> Scholarships</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How can I find scholarship opportunities?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Visit the Scholarships page to browse available scholarship opportunities. You can search by scholarship name or keywords, and filter by academic level (undergraduate, master's, PhD), location, and funding type (fully funded, partially funded, tuition waiver).</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Can I post scholarship information?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! Click "Post a Scholarship" on the Scholarships page and provide details including scholarship name, level, location, funding details, duration, deadline, eligibility criteria, benefits, and the scholarship link. This helps the community stay informed about funding opportunities.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>What information is included in scholarship posts?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Scholarship posts include comprehensive details such as the scholarship name, academic level, location, funding type and details, duration, application deadline, eligibility criteria, benefits, and a link to the official scholarship page. You can also see who posted the information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2><i class="fas fa-shield-alt"></i> Privacy & Security</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Is my information secure?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, we take security seriously. All user accounts are verified through email authentication. Your password is encrypted, and we follow best practices to protect your personal information.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Who can see my profile information?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Your profile information is visible to other verified CUET ConnectX members. This allows for effective networking and collaboration within the CUET community.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How do I reset my password?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Click on "Forgot Password?" on the login page. Enter your registered email address, and you'll receive instructions to reset your password.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2><i class="fas fa-question-circle"></i> General</h2>
+                    <div class="faq-items">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>What is the purpose of CUET ConnectX?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>CUET ConnectX aims to create a centralized digital network for CUET students and alumni, enabling mentorship, career guidance, academic collaboration, and access to opportunities like jobs and scholarships. It strengthens the CUET community through lifelong connections.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>Is CUET ConnectX free to use?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, CUET ConnectX is completely free for all CUET students and alumni. Our goal is to foster connections and support within the CUET community.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFAQ(this)">
+                                <h3>How can I contact support?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>If you have any questions or issues, please reach out to us through the Contact Us link in the footer or email us at support@cuetconnectx.com. We're here to help!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-cta">
+                <h3>Still have questions?</h3>
+                <p>Can't find the answer you're looking for? Feel free to reach out to our support team.</p>
+                <a href="#" class="btn-primary">Contact Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-network-wired"></i>
+                        <span>CUET ConnectX</span>
+                    </div>
+                    <p>Connecting CUETians for academic excellence, career growth, and lifelong collaboration.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CUET ConnectX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
